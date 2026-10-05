@@ -1,0 +1,201 @@
+:root {
+  --bg: #0b0f2b;
+  --panel: #0a1440;
+  --header: #122a83;
+  --cell: #0d1b5c;
+  --cell-hover: #0f226f;
+  --border: rgba(255, 255, 255, 0.18);
+  --accent: #ffd54a;
+
+  --question: #1737a3;
+  --answer: #0c7a3a;
+
+  --text: #ffffff;
+  --text-dark: #111111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: "Copse", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
+header {
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Main layout */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 10px 0 18px;
+}
+
+/* Button */
+#restart {
+  appearance: none;
+  border: 0;
+  background: var(--accent);
+  color: var(--text-dark);
+  font-weight: 800;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+  transition: transform 0.06s ease, filter 0.12s ease;
+}
+
+#restart:hover {
+  filter: brightness(1.03);
+}
+
+#restart:active {
+  transform: translateY(1px);
+}
+
+#restart:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Loading text */
+#loading {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 700;
+}
+
+/* Table */
+#jeopardy {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+/* Header row */
+#jeopardy thead th {
+  padding: 14px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 900;
+  font-size: 0.95rem;
+  background: var(--header);
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+
+/* Cells */
+#jeopardy tbody td {
+  height: 86px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 900;
+  font-size: 1.35rem;
+  background: var(--cell);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s ease, transform 0.06s ease;
+}
+
+/* Remove last borders */
+#jeopardy tbody tr td:last-child {
+  border-right: 0;
+}
+#jeopardy tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Hover/active */
+#jeopardy tbody td:hover {
+  background: var(--cell-hover);
+}
+
+#jeopardy tbody td:active {
+  transform: translateY(1px);
+}
+
+/* Keyboard focus */
+#jeopardy tbody td:focus {
+  outline: 3px solid rgba(255, 213, 74, 0.9);
+  outline-offset: -3px;
+}
+
+/* Question state */
+#jeopardy tbody td.cell-question {
+  background: var(--question);
+  font-size: 1rem;
+  line-height: 1.15;
+  font-weight: 700;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* Answer state */
+#jeopardy tbody td.cell-answer {
+  background: var(--answer);
+  font-size: 1rem;
+  line-height: 1.15;
+  font-weight: 800;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* Small screens */
+@media (max-width: 720px) {
+  body {
+    padding: 14px;
+  }
+
+  #jeopardy thead th {
+    font-size: 0.75rem;
+    padding: 10px 6px;
+  }
+
+  #jeopardy tbody td {
+    height: 72px;
+    font-size: 1.1rem;
+    padding: 8px;
+  }
+
+  #jeopardy tbody td.cell-question,
+  #jeopardy tbody td.cell-answer {
+    font-size: 0.9rem;
+  }
+}
