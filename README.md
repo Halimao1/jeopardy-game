@@ -35,7 +35,7 @@ Restarting the game fetches a new randomized set of categories and questions.
 
 ## Live Demo
 
-[Play the Jeopardy Game](ADD-LIVE-LINK-HERE)
+[Play the Jeopardy Game](https://halimao1.github.io/jeopardy-game/)
 
 ## What I Practiced
 
